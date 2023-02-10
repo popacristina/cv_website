@@ -1,0 +1,45 @@
+{
+    "landingSection": {
+        "title" : "Hi! I'm Cristina",
+        "description" : "and I'm a junior web developer based in Bucharest"
+    },
+    "aboutSection" : [
+        {
+            "title": "Education",
+            "icon" : "faBuildingColumns",
+            "description": "Graduated Electronics, Telecommunications and Information Technology Faculty of University Politehnica Bucharest."
+        },
+        {
+            "title": "Experience",
+            "icon" : "faBriefcase",
+            "description": "Worked as QA Automation Engineer at Bitdefender between July - October 2021. Manually tested components and functionalitites, automated and created new testcases and refactored existing code."
+        },
+        {
+            "title": "Interests",
+            "icon" : "faPalette",
+            "description": "Something here"
+        }
+    ],
+    "projectsSection" : [
+        {
+            "title": "Detection of eye diseases with AI",
+            "description" : "Python based app used to clasify retina images and diagnose using different types of neural networks.",
+            "technologies" : "Python, PyTorch, Qt, VGG, ResNet",
+            "image" : "Picture_1.png"
+        },
+        {
+            "title": "Website using React",
+            "description" : "Simple portfolio website built using technologies such as React, Chakra UI and more.",
+            "technologies" : "React, JavaScript, CSS, ChakraUI, Formik",
+            "image" : "Picture_2.png"
+        },
+        {
+            "title": "IOS Hospital App",
+            "description" : "Something something",
+            "technologies" : "Swift, SQLite",
+            "image" : "Picture_3.png"
+        }
+      
+    ]
+        
+}

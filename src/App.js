@@ -1,24 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import {ChakraProvider, extendTheme} from '@chakra-ui/react'
+import Header from './components/Header';
+import LandingSection from './components/LandingSection';
+import AboutSection from './components/AboutSection';
+import ProjectsSection from './components/ProjectsSection';
+import Footer from './components/Footer';
+import ContactSection from './components/ContactSection';
+import Alert from './components/Alert';
+import { AlertProvider } from './context/alertContext';
+
+const breakpoints = {
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px'
+}
+
+const customTheme = extendTheme({
+  components: {
+    Drawer: {
+      parts: ['dialog', 'header', 'body'],
+      variants: {
+        primary: {
+          dialog: {
+            background: 'blackAlpha.900',
+            color: "white"
+          }
+        },
+        secondary: {
+          dialog: {
+            background: "green"
+          }
+        }
+      }
+    }
+  },
+  breakpoints
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  <ChakraProvider theme={customTheme}>
+    <AlertProvider>
+    <main>
+      <Header />
+      <LandingSection />
+      <AboutSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
+      <Alert/>
+    </main>
+    </AlertProvider>
+  </ChakraProvider>
+
   );
 }
 
