@@ -79,18 +79,18 @@ const ContactSection = () => {
         <FullScreenSection
             isDarkBackground
             backgroundColor="black"
-            py={16}
+            py={10}
             spacing={8}    
         >
             <VStack 
-                w={{lg: '1024px', md: '900px', sm: '390'}} 
-                p={32} 
+                py={10} 
                 alignItems="flex-start"
+                w={{xl: "100vh", lg : "80vh", md : "60vh", base: "40vh"}}
                 >  
                 <Heading as='h1' id="contact-section">
                     Contact me
                 </Heading>
-                <Box p={6} rounded='md'  w='100%'>
+                <Box p={2} rounded='md'  w='100%'>
                     <form ref={form} onSubmit={sendEmail}>
                         <VStack spacing={4}>
                         <FormControl 

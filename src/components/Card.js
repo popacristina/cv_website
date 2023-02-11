@@ -30,8 +30,8 @@ const Card = ({ title, description, technologies, imageSrc }) => {
                 <Box mt={{base: 4, md: 0}} ml={{md: 2}}>
                     <Heading color='white' fontSize='xl'>{title}</Heading>
                     <Collapse startingHeight={40} in={show}>
-                        <Text fontSize='sm' color='gray.500'>{description}</Text>
-                        <Text fontSize='sm' color='gray.500'>
+                        <Text fontSize='sm' color='whiteAlpha.800'>{description}</Text>
+                        <Text fontSize='sm' color='whiteAlpha.800'>
                             Technologies: {technologies} 
                         </Text>
                     </Collapse>

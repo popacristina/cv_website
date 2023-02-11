@@ -21,7 +21,7 @@ const LandingSection = () => {
                 <VStack px={16}>
                     <Text id="home-section"></Text>
                     <Text fontSize={['3xl','6xl']} color='white' >{data.landingSection.title}</Text>
-                    <Text fontSize={['xl','3xl']} color='whiteAlpha.500'>{data.landingSection.description}</Text> 
+                    <Text fontSize={['xl','3xl']} color='whiteAlpha.800'>{data.landingSection.description}</Text> 
                 </VStack>
             </Fade>
         </FullScreenSection>

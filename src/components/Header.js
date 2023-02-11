@@ -19,7 +19,7 @@ const socials = [
     },
     {
         icon: faLinkedin,
-        url: "https://www.linkedin.com"
+        url: "https://www.linkedin.com/in/cristina-popa-b73a89252/"
     },
 ];
 
