@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/popacristina/cv_website/static/css/main.073c9b0a.css",
+    "main.js": "/popacristina/cv_website/static/js/main.f08ace14.js",
+    "static/js/787.dd896db4.chunk.js": "/popacristina/cv_website/static/js/787.dd896db4.chunk.js",
+    "static/media/Picture_1.png": "/popacristina/cv_website/static/media/Picture_1.d4e4c798da95ef46f702.png",
+    "static/media/Untitled-2.png": "/popacristina/cv_website/static/media/Untitled-2.3d6f9c5be7d3b8f5e90f.png",
+    "static/media/Picture_3.png": "/popacristina/cv_website/static/media/Picture_3.230b854f9a9265f616e3.png",
+    "static/media/Picture_2.png": "/popacristina/cv_website/static/media/Picture_2.60263b8065e7a978e2e6.png",
+    "index.html": "/popacristina/cv_website/index.html",
+    "main.073c9b0a.css.map": "/popacristina/cv_website/static/css/main.073c9b0a.css.map",
+    "main.f08ace14.js.map": "/popacristina/cv_website/static/js/main.f08ace14.js.map",
+    "787.dd896db4.chunk.js.map": "/popacristina/cv_website/static/js/787.dd896db4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.f08ace14.js"
+  ]
+}
