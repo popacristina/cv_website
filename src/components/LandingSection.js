@@ -7,7 +7,6 @@ import Fade from 'react-reveal/Fade';
 import FullScreenSection from "./FullScreenSection";
 import data from '../data.json';
 
-// backgroundImage='linear-gradient(to bottom right, black, #42522a, #b8b7b6)'>
 
 const LandingSection = () => {
     return (

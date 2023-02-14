@@ -6,8 +6,7 @@ import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 import ContactSection from './components/ContactSection';
-import Alert from './components/Alert';
-import { AlertProvider } from './context/alertContext';
+
 
 const breakpoints = {
   sm: '320px',
@@ -43,7 +42,6 @@ function App() {
   return (
 
   <ChakraProvider theme={customTheme}>
-    <AlertProvider>
     <main>
       <Header />
       <LandingSection />
@@ -51,9 +49,7 @@ function App() {
       <ProjectsSection />
       <ContactSection />
       <Footer />
-      <Alert/>
     </main>
-    </AlertProvider>
   </ChakraProvider>
 
   );

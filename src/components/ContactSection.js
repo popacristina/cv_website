@@ -13,18 +13,10 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
 import FullScreenSection from "./FullScreenSection";
-//import useSubmit from "../hooks/useSubmit";
-//import {useAlertContext} from "../context/alertContext";
 import emailjs from '@emailjs/browser';
 
 
 const ContactSection = () => {
-    //const {isLoading, response, submit} = useSubmit();
-    //const {onOpen} = useAlertContext();
-    // <Button isLoading={isLoading} type="submit" colorScheme="white" variant='outline' width="full"> 
-    // <form ref={form} onSubmit={formik.handleSubmit}></form>
-
-    //const url = 'localhost/3000';
 
     const form = useRef();
 
@@ -57,22 +49,6 @@ const ContactSection = () => {
                 .min(25, "Must be at least 25 characters")
                 .required("Required"),
         }),
-        /*
-        onSubmit: (values) => {
-            /*
-            submit(url, values);
-            onOpen(response.type, response.message);
-            if(response.type === "success") formik.resetForm();
-            
-            
-            emailjs.send("service_t2asevv", "template_v1v7sx8", values, "4Q08oH2T3dfteSf2A")
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                }, (error) => {
-                    console.log('FAILED...', error);
-                });
-        },
-        */
     });
 
     return (
@@ -106,7 +82,7 @@ const ContactSection = () => {
                             <FormErrorMessage>{formik.errors.user_name}</FormErrorMessage>
                         </FormControl>
                         <FormControl isInvalid={formik.touched.user_email && formik.errors.user_email} isRequired>
-                            <FormLabel htmlFor="user_email">Email Address</FormLabel>
+                            <FormLabel htmlFor="user_email">Email</FormLabel>
                             <Input
                             id="user_email"
                             name="user_email"
@@ -116,7 +92,7 @@ const ContactSection = () => {
                             <FormErrorMessage>{formik.errors.user_email}</FormErrorMessage>
                         </FormControl>
                         <FormControl isInvalid={formik.touched.message && formik.errors.message} isRequired>
-                            <FormLabel htmlFor="message">Your message</FormLabel>
+                            <FormLabel htmlFor="message">Message</FormLabel>
                             <Textarea
                             id="message"
                             name="message"
