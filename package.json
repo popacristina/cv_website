@@ -2,6 +2,7 @@
   "name": "cv_web",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/popacristina/cv_website",
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
     "@emailjs/browser": "^3.10.0",
@@ -25,6 +26,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
