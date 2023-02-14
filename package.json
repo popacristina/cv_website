@@ -2,7 +2,7 @@
   "name": "cv_web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/popacristina/cv_website",
+  "homepage": "https://popacristina.github.io/cv_website",
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
     "@emailjs/browser": "^3.10.0",
