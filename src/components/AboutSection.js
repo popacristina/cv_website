@@ -8,12 +8,12 @@ import {
     HStack, VStack,
     Heading
 } from '@chakra-ui/react';
-import { faBuildingColumns, faBriefcase, faPalette } from "@fortawesome/free-solid-svg-icons";
+import { faBuildingColumns, faBriefcase, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import data from "../data.json";
 
 
-const icons = [ faBuildingColumns, faBriefcase, faPalette ]
+const icons = [ faBuildingColumns, faBriefcase, faGear ]
 
 const listAbout = data.aboutSection.map((info, index) => {
     return (

@@ -14,14 +14,20 @@ import {
 import * as Yup from 'yup';
 import FullScreenSection from "./FullScreenSection";
 import emailjs from '@emailjs/browser';
+import { useState } from "react";
+import { useAlertContext } from "../context/alertContext";
 
 
 const ContactSection = () => {
 
     const form = useRef();
+    const [ isLoading, setLoading ] = useState(false);
+    const [ response, setResponse ] = useState(null);
+    const { onOpen } = useAlertContext()
 
     const sendEmail = (e) => {
         e.preventDefault();
+        setLoading(true);
 
         emailjs.sendForm(
             process.env.REACT_APP_SERVICE_ID,
@@ -29,11 +35,26 @@ const ContactSection = () => {
             form.current,
             process.env.REACT_APP_USER_ID
         ).then(
-            result => console.log(result.text),
-            error => console.log(error.text)
+            result => {
+                console.log(result.text);
+                setLoading(false);
+                setResponse({
+                    type: 'success',
+                    message: `Thanks for your submission, we will get back to you shortly!`,
+                });
+                onOpen(response.type, response.message);
+                formik.resetForm();
+            },
+            error => {
+                console.log(error.text);
+                setLoading(false);
+                setResponse({
+                    type: 'error',
+                    message: 'Something went wrong, please try again later!',
+                });
+                onOpen(response.type, response.message);
+            }
         );
-
-        formik.resetForm();
     };
 
     const formik = useFormik({
@@ -101,7 +122,7 @@ const ContactSection = () => {
                             />
                             <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
                         </FormControl>
-                        <Button type="submit" colorScheme="white" variant='outline' width="full"> 
+                        <Button isLoading={isLoading} type="submit" colorScheme="white" variant='outline' width="full"> 
                             Submit
                         </Button>
                         </VStack>

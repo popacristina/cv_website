@@ -6,6 +6,8 @@ import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 import ContactSection from './components/ContactSection';
+import Alert from "./components/Alert";
+import { AlertProvider } from './context/alertContext';
 
 
 const breakpoints = {
@@ -23,7 +25,7 @@ const customTheme = extendTheme({
       variants: {
         primary: {
           dialog: {
-            background: 'blackAlpha.900',
+            background: 'blackAlpha.800',
             color: "white"
           }
         },
@@ -40,8 +42,8 @@ const customTheme = extendTheme({
 
 function App() {
   return (
-
   <ChakraProvider theme={customTheme}>
+    <AlertProvider>
     <main>
       <Header />
       <LandingSection />
@@ -49,10 +51,11 @@ function App() {
       <ProjectsSection />
       <ContactSection />
       <Footer />
+      <Alert />
     </main>
+    </AlertProvider>
   </ChakraProvider>
-
   );
-}
+};
 
 export default App;
