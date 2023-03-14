@@ -5,7 +5,9 @@ import {
     Text, 
     HStack,
     Collapse,
-    Button
+    Button,
+    useColorModeValue,
+    VStack
  } 
 from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,12 +16,16 @@ import React from "react";
 import Fade from 'react-reveal/Fade'
 
 const Card = ({ title, description, technologies, imageSrc }) => {
-    const [show, setShow] = React.useState(false)
-    const handleToggle = () => setShow(!show)
+    const [show, setShow] = React.useState(false);
+    const handleToggle = () => setShow(!show);
+
+    const color = useColorModeValue('black', 'white');
+    const secondaryColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.800');
+    const bg = useColorModeValue('white', 'black');
 
     return (
         <Fade bottom cascade>
-            <Box p={4} display={{md:'flex'}} bg='black'>
+            <Box p={4} display={{md:'flex'}} bg={bg}>
                 <Box flexShrink={0.5}>
                     <Image 
                         borderRadius='md' 
@@ -28,19 +34,17 @@ const Card = ({ title, description, technologies, imageSrc }) => {
                     />
                 </Box>
                 <Box mt={{base: 4, md: 0}} ml={{md: 2}}>
-                    <Heading color='white' fontSize='xl'>{title}</Heading>
+                    <Heading color={color} fontSize='xl'>{title}</Heading>
                     <Collapse startingHeight={40} in={show}>
-                        <Text fontSize='sm' color='whiteAlpha.800'>{description}</Text>
-                        <Text fontSize='sm' color='whiteAlpha.800'>
+                        <Text fontSize='sm' color={secondaryColor}>{description}</Text>
+                        <Text fontSize='sm' color={secondaryColor}>
                             Technologies: {technologies} 
                         </Text>
                     </Collapse>
-                    <HStack spacing={1}>
-                        <FontAwesomeIcon icon={faAngleDown} />
-                        <Button size='sm' onClick={handleToggle} mt='1rem' colorScheme='blackAlpha'>
-                            Show {show ? 'Less' : 'More'}   
-                        </Button>
-                    </HStack>
+                    <Button size='sm' onClick={handleToggle} mt='1rem' color={color} bg={bg}>
+                        <FontAwesomeIcon icon={faAngleDown} color={color}/>
+                        Show {show ? 'Less' : 'More'}   
+                    </Button>
                 </Box>     
             </Box>
         </Fade>

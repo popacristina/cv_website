@@ -34,7 +34,7 @@
             "image" : "Picture_1.png"
         },
         {
-            "title": "iOS Hospital App ",
+            "title": "iOS App for managing an hospital",
             "description" : "Mobile application that uses Swift programming language and SQLite to manage an hospital database. Users can interact with the app by adding, updating and deleting data, such as adding a new appointment, updating doctor's personal information or deleting old entries. Hospital App communicates with the SQLite database in real-time, updating the data as the user interacts with it. ",
             "technologies" : "SwiftUI, SQLite",
             "image" : "Picture_3.png"

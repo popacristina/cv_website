@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Box, HStack } from '@chakra-ui/react';
+import { Box, 
+    Button, 
+    HStack, 
+    useColorMode, 
+    useColorModeValue 
+} from '@chakra-ui/react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
@@ -49,14 +54,22 @@ function useScroll() {
 const Header = () => {
 
     const scrollDirection = useScroll();
+    const {colorMode, toggleColorMode} = useColorMode()
+    const color = useColorModeValue('black', 'white')
+    const bg = useColorModeValue('white', 'black')
 
     const listIcons = socials.map((social) => {
         return(
             <a href={social.url}>
-                <FontAwesomeIcon icon={social.icon} size="2px" color="white"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={social.icon} size="2px" color={color}/>
             </a>
         )
     });
+
+    const colorModeIcon = (colorMode) => {
+        if (colorMode === 'light') return <FontAwesomeIcon icon={faMoon} color='black'/>
+        else return <FontAwesomeIcon icon={faSun} color='white'/>
+    }
 
     return (
         <Box
@@ -70,7 +83,7 @@ const Header = () => {
             transitionProperty='transform'
             transitionDuration='.3s'
             transitionTimingFunction='ease-in-out'
-            bg='black'
+            bg={bg}
         >
             <HStack
                 px={16}
@@ -79,8 +92,11 @@ const Header = () => {
                 alignItems='center'    
             >
             <nav>
-                <HStack spacing={12}>
+                <HStack spacing={6}>
                     <Burger />
+                    <Button onClick={toggleColorMode} color={color} bg={bg}>
+                        {colorModeIcon(colorMode)}
+                    </Button>
                 </HStack>
             </nav>
             <nav>

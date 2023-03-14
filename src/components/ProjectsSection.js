@@ -1,6 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import Card from "./Card";
 import Fade from "react-reveal/Fade";
 import data from "../data.json";
@@ -8,16 +8,19 @@ import data from "../data.json";
 
 const ProjectsSection = () => {
 
+    const color = useColorModeValue('black', 'white');
+    const bg = useColorModeValue('white', 'black');
+
     return (
         <FullScreenSection
-            backgroundColor="black"
+            backgroundColor={bg}
             isDarkBackground
             p={16}
             alignItems="flex-start"
             spacing={8}
         >
             <Fade bottom>
-                <Heading as="h1" id="projects-section">
+                <Heading as="h1" id="projects-section" color={color}>
                     Featured Projects
                 </Heading>
             </Fade>

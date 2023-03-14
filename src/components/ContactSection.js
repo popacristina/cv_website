@@ -10,6 +10,7 @@ import {
   Input,
   Textarea,
   VStack,
+  useColorModeValue
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
 import FullScreenSection from "./FullScreenSection";
@@ -17,13 +18,16 @@ import emailjs from '@emailjs/browser';
 import { useState } from "react";
 import { useAlertContext } from "../context/alertContext";
 
-//coment here
+
 const ContactSection = () => {
+
+    const color = useColorModeValue('black', 'white');
+    const bg = useColorModeValue('white', 'black');
 
     const form = useRef();
     const [ isLoading, setLoading ] = useState(false);
     const [ response, setResponse ] = useState(null);
-    const { onOpen } = useAlertContext()
+    const { onOpen } = useAlertContext();
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -75,7 +79,7 @@ const ContactSection = () => {
     return (
         <FullScreenSection
             isDarkBackground
-            backgroundColor="black"
+            backgroundColor={bg}
             py={10}
             spacing={8}    
         >
@@ -84,7 +88,7 @@ const ContactSection = () => {
                 alignItems="flex-start"
                 w={{xl: "100vh", lg : "80vh", md : "60vh", base: "40vh"}}
                 >  
-                <Heading as='h1' id="contact-section">
+                <Heading as='h1' id="contact-section" color={color}>
                     Contact me
                 </Heading>
                 <Box p={2} rounded='md'  w='100%'>
@@ -94,35 +98,38 @@ const ContactSection = () => {
                             isInvalid={formik.touched.user_name && formik.errors.user_name} 
                             isRequired
                             >
-                            <FormLabel htmlFor="user_name">Name</FormLabel>
+                            <FormLabel htmlFor="user_name" color={color}>Name</FormLabel>
                             <Input
                                 id="user_name"
                                 name="user_name"
-                                {...formik.getFieldProps('user_name')}
+                                color={color}
+                                {...formik.getFieldProps('user_name')}  
                             />
                             <FormErrorMessage>{formik.errors.user_name}</FormErrorMessage>
                         </FormControl>
                         <FormControl isInvalid={formik.touched.user_email && formik.errors.user_email} isRequired>
-                            <FormLabel htmlFor="user_email">Email</FormLabel>
+                            <FormLabel htmlFor="user_email" color={color}>Email</FormLabel>
                             <Input
                             id="user_email"
                             name="user_email"
+                            color={color}
                             type="user_email"
                             {...formik.getFieldProps('user_email')}
                             />
                             <FormErrorMessage>{formik.errors.user_email}</FormErrorMessage>
                         </FormControl>
                         <FormControl isInvalid={formik.touched.message && formik.errors.message} isRequired>
-                            <FormLabel htmlFor="message">Message</FormLabel>
+                            <FormLabel htmlFor="message" color={color}>Message</FormLabel>
                             <Textarea
                             id="message"
                             name="message"
+                            color={color}
                             height={250}
                             {...formik.getFieldProps('message')}
                             />
                             <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
                         </FormControl>
-                        <Button isLoading={isLoading} type="submit" colorScheme="white" variant='outline' width="full"> 
+                        <Button isLoading={isLoading} type="submit" color={color} variant='outline' width="full"> 
                             Submit
                         </Button>
                         </VStack>
