@@ -1,5 +1,5 @@
 import './App.css';
-import {ChakraProvider, extendTheme} from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import Header from './components/Header';
 import LandingSection from './components/LandingSection';
 import AboutSection from './components/AboutSection';
@@ -10,39 +10,11 @@ import Alert from "./components/Alert";
 import { AlertProvider } from './context/alertContext';
 
 
-const breakpoints = {
-  sm: '320px',
-  md: '768px',
-  lg: '960px',
-  xl: '1200px',
-  '2xl': '1536px'
-}
-
-const customTheme = extendTheme({
-  components: {
-    Drawer: {
-      parts: ['dialog', 'header', 'body'],
-      variants: {
-        primary: {
-          dialog: {
-            background: 'blackAlpha.800',
-            color: "white"
-          }
-        },
-        secondary: {
-          dialog: {
-            background: "green"
-          }
-        }
-      }
-    }
-  },
-  breakpoints
-})
+// <ChakraProvider theme={customTheme}>
 
 function App() {
   return (
-  <ChakraProvider theme={customTheme}>
+  <ChakraProvider>
     <AlertProvider>
     <main>
       <Header />

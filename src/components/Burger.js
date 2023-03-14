@@ -5,7 +5,9 @@ import { useDisclosure,
     DrawerCloseButton, 
     DrawerHeader,
     DrawerBody, 
-    VStack, HStack
+    VStack, HStack,
+    useColorMode,
+    useColorModeValue
 } from "@chakra-ui/react";
 import React, {useRef} from "react";
 import {Button} from '@chakra-ui/react';
@@ -30,10 +32,14 @@ const Burger = () => {
           });
         }
       };
+    
+    const {colorMode, toggleColorMode} = useColorMode();
+    const color = useColorModeValue('black', 'white');
+    const bg = useColorModeValue('white', 'black');
 
     return (
         <>
-            <Button ref={btnRef} onClick={onOpen} colorScheme='white' variant='solid' size='md'>
+            <Button ref={btnRef} onClick={onOpen}  size='md' bg={bg}>
                 <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
             </Button>
             <Drawer
@@ -41,13 +47,13 @@ const Burger = () => {
                 placement='left'
                 onClose={onClose}
                 finalFocusRef={btnRef}
-                variant='primary'
+                bg={bg}
             >
                 <DrawerOverlay>
                     <DrawerContent>
                         <DrawerCloseButton />
-                        <DrawerHeader />
-                        <DrawerBody>
+                        <DrawerHeader bg={bg}/>
+                        <DrawerBody bg={bg}>
                             <VStack spacing={8} py={8} alignItems='flex-start'>
                             <HStack spacing={4} px={8}>
                                     <FontAwesomeIcon icon={faAddressCard}/>
