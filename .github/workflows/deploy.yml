@@ -26,6 +26,10 @@ jobs:
       - run: npm ci
       - run: npm run build
       - uses: actions/configure-pages@v5
+        with:
+          # Re-enable Pages (as GitHub Actions build type) if it isn't already,
+          # e.g. after the site was unpublished.
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
